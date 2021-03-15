@@ -5,3 +5,5 @@ dist
 *.log
 /*.js
 !gulpfile.js
+
+.idea/
