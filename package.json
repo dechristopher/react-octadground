@@ -1,11 +1,12 @@
 {
   "name": "react-octadground",
-  "version": "1.5.1-3",
+  "version": "1.5.1-4",
   "description": "React wrapper for octadground <https://github.com/dechristopher/octadground>",
   "main": "index.js",
   "module": "example/demo/src/es/index.js",
   "scripts": {
-    "build": "rm -rf ./dist && rm -rf example/demo/src/es && gulp"
+    "prepare": "yarn version --prerelease && yarn build",
+    "build": "gulp"
   },
   "repository": {
     "type": "git",
@@ -44,6 +45,7 @@
     "@types/react-dom": "^17.0.2",
     "gulp": "4.0.2",
     "gulp-babel": "8.0.0",
+    "gulp-clean": "^0.4.0",
     "gulp-concat": "2.6.1",
     "gulp-typescript": "^6.0.0-alpha.1",
     "gulp-uglifycss": "1.1.0",
