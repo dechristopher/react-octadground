@@ -6,3 +6,4 @@ es
 *.log
 /*.js
 !gulpfile.js
+.idea
