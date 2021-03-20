@@ -1,6 +1,6 @@
 {
   "name": "react-octadground",
-  "version": "1.5.1-8",
+  "version": "1.5.1-9",
   "description": "React wrapper for octadground <https://github.com/dechristopher/octadground>",
   "main": "index.js",
   "module": "example/demo/src/es/index.js",
