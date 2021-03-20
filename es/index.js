@@ -1,1 +1,1 @@
-module.exports = require("./octadground");
+export * from "./octadground";
