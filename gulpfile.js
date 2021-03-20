@@ -46,9 +46,9 @@ gulp.task("es", () => {
 
 gulp.task("css", () => {
   return gulp
-    .src("src/styles/*.css")
+    .src("src/styles/**/*.css")
     .pipe(uglifycss())
-    .pipe(concat("octadground.css"))
+    .pipe(concat("chessground.css"))
     .pipe(gulp.dest("dist/styles"));
 });
 

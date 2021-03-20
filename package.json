@@ -1,30 +1,32 @@
 {
   "name": "react-octadground",
-  "version": "1.0.4",
+  "version": "1.5.1-0",
   "description": "React wrapper for octadground <https://github.com/dechristopher/octadground>",
   "main": "index.js",
-  "module": "es/index.js",
+  "module": "example/demo/src/es/index.js",
   "scripts": {
-    "build": "gulp"
+    "build": "rm -rf ./dist && rm -rf example/demo/src/es && gulp"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dechristopher/octadground.git"
+    "url": "https://github.com/dechristopher/react-octadground.git"
   },
   "keywords": [
-    "chess",
-    "chessboard",
-    "chessground",
+    "octad",
+    "octadboard",
+    "octadground",
     "react"
   ],
   "authors": [
-    "Ruilisi"
+    "Andrew Dechristopher <me@dchr.host>",
+    "Mike Upton <me@uptonm.dev>",
+    "Shawn Toubeau <shawntoubeau@gmail.com>"
   ],
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/dechristopher/octadground/issues"
+    "url": "https://github.com/dechristopher/react-octadground/issues"
   },
-  "homepage": "https://github.com/dechristopher/octadground",
+  "homepage": "https://github.com/dechristopher/react-octadground",
   "dependencies": {
     "octadground": "1.0.0"
   },
@@ -42,6 +44,6 @@
     "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-uglifycss": "^1.1.0",
-    "react-scripts": "^3.4.3"
+    "react-scripts": "^4.0.3"
   }
 }
