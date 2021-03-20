@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Octadground as NativeChessground } from 'octadground'
+import { Octadground as NativeOctadground } from 'octadground'
 
 export default class Octadground extends React.Component {
 
@@ -45,7 +45,7 @@ export default class Octadground extends React.Component {
 
   buildConfigFromProps(props) {
     const config = { events: {} }
-    Object.keys(Chessground.propTypes).forEach(k => {
+    Object.keys(Octadground.propTypes).forEach(k => {
       const v = props[k]
       if (typeof v !== 'undefined') {
         const match = k.match(/^on([A-Z]\S*)/)
@@ -60,7 +60,7 @@ export default class Octadground extends React.Component {
   }
 
   componentDidMount() {
-    this.cg = NativeChessground(this.el, this.buildConfigFromProps(this.props))
+    this.cg = NativeOctadground(this.el, this.buildConfigFromProps(this.props))
   }
 
   componentWillReceiveProps(nextProps) {

@@ -1,0 +1,11 @@
+html, body {
+    margin: 0;
+}
+
+.view-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    background: #2b313c;
+    place-content: center center;
+}
