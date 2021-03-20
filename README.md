@@ -1,6 +1,12 @@
 # React Octadground
+[![NPM Download Stats](https://nodei.co/npm/react-octadground.png?downloads=true)](https://www.npmjs.com/package/react-octadground)
+
+[![Dependency Status](https://david-dm.org/dechristopher/react-octadground.svg)](https://david-dm.org/dechristopher/react-octadground)
+[![devDependencies Status](https://david-dm.org/dechristopher/react-octadground/dev-status.svg)](https://david-dm.org/dechristopher/react-octadground?type=dev)
+[![Known Vulnerabilities](https://snyk.io/test/github/dechristopher/react-octadground/badge.svg?targetFile=package.json)](https://snyk.io/test/github/dechristopher/react-octadground?targetFile=package.json)
 
 **react-octadground** is a React wrapper of [Octadground](https://github.com/dechristopher/octadground)
+
 
 ## Installation
 
