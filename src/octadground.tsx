@@ -93,7 +93,7 @@ const Octadground: FC<OctadgroundProps> = (props) => {
   return (
     <div
       ref={ref => el.current = ref}
-      style={Object.assign(props.style, {
+      style={Object.assign((props.style || {}), {
         height: props.height,
         width: props.width
       })}

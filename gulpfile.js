@@ -52,6 +52,7 @@ gulp.task("compile:cjs", () => {
                 plugins: getPlugins()
             })
         )
+        .pipe(gulpIf("*.js", uglify()))
         .pipe(gulp.dest("."));
 });
 

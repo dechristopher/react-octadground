@@ -10,7 +10,7 @@
     "less": "^3.9.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-octadground": "^1.5.1-17",
+    "react-octadground": "^1.5.1-18",
     "webpack-merge": "^4.2.1"
   },
   "scripts": {

@@ -6327,10 +6327,10 @@ react-lifecycles-compat@^3.0.2, react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-react-octadground@^1.5.1-17:
-  version "1.5.1-17"
-  resolved "https://registry.yarnpkg.com/react-octadground/-/react-octadground-1.5.1-17.tgz#eeb5ee5145bd1a0e2be43d11aa534edf7431ff08"
-  integrity sha512-qMS4khPX7ixj7HlUSqStHc4fuMCnMDmnOZNyEjE8iErVLjWe7o/AXLhqPqOkocQTy6UMVnpcPxrMBQn24UY73Q==
+react-octadground@^1.5.1-18:
+  version "1.5.1-18"
+  resolved "https://registry.yarnpkg.com/react-octadground/-/react-octadground-1.5.1-18.tgz#e0a5a3f94db91243975db152d9e21d2e9aa61e16"
+  integrity sha512-TVHaVUB8DxCgpV82NbGoLJUKi/8Iwuj65Q7EiKHr49ei3DMICosCgApZeJm84KwTtPyo6oC9f3ce2EkJ3EWrhQ==
   dependencies:
     octadground "1.0.1-0"
 

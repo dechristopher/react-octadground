@@ -13,7 +13,6 @@ const Demo = () => {
                 ofen={ofen}
                 width="38vw"
                 height="38vw"
-                style={{margin: "auto"}}
             />
         </div>
     )
