@@ -5,8 +5,12 @@
   "main": "index.js",
   "module": "example/demo/src/es/index.js",
   "scripts": {
-    "prepare": "yarn version --prerelease && yarn build",
-    "build": "gulp"
+    "prepublishOnly": "yarn build",
+    "build": "gulp",
+    "publish:prerelease": "yarn version --prerelease && npm publish",
+    "publish:prepatch": "yarn version --prepatch && npm publish",
+    "publish:preminor": "yarn version --preminor && npm publish",
+    "publish:premajor": "yarn version --premajor && npm publish"
   },
   "repository": {
     "type": "git",

@@ -4,7 +4,7 @@ import Octadground from "react-octadground/octadground"
 import "react-octadground/dist/styles/octadground.css"
 import "./index.css";
 
-const Demo = () => {
+export const Demo = () => {
     const [ofen, setOfen] = useState("ppkn/4/4/NKPP w NCFncf - 0 1")
 
     return (
