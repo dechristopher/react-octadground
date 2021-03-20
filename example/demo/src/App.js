@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 import ReactDOM from "react-dom"
-import Octadground from "react-octadground"
+import Octadground from "react-octadground/octadground"
 import "react-octadground/dist/styles/octadground.css"
 import "./index.css";
 

@@ -1,18 +1,17 @@
+
 {
-  "files": ["src/index.ts"],
   "compilerOptions": {
-    "target": "es6",
+    "outDir": "./dist",
+    "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
-    "noResolve": false,
-    "esModuleInterop": true,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "removeComments": true,
-    "sourceMap": true,
-    "allowJs": true,
+    "declaration": true,
+    "esModuleInterop": true,
     "jsx": "react",
+    "lib": ["es2015", "dom"]
   },
-  "exclude": [
-    "./node_modules/**/*"
-  ]
+  "files": ["src/index.ts", "src/octadground.tsx"],
+  "exclude": ["node_modules"]
 }

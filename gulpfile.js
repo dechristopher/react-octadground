@@ -1,12 +1,15 @@
 const gulp = require("gulp");
+const gulpIf = require("gulp-if");
+const del = require("del");
+const cache = require("gulp-cache");
+const imagemin = require("gulp-imagemin");
 const babel = require("gulp-babel");
+const uglify = require("gulp-uglify");
 const uglifycss = require("gulp-uglifycss");
 const concat = require("gulp-concat");
 const ts = require("gulp-typescript");
-const tsProject = ts.createProject("tsconfig.json");
 
-
-function getPresets(env) {
+const getPresets = (env) => {
     return [
         [
             "@babel/env",
@@ -19,21 +22,31 @@ function getPresets(env) {
     ];
 }
 
-function getPlugins() {
+const getPlugins = () => {
     return ["@babel/plugin-proposal-class-properties"];
 }
 
-gulp.task("default", function () {
+gulp.task("clean:cjs", async () => {
+    return del
+        .sync(["index.js", "octadground.js"]);
+});
+
+gulp.task("clean:es", async () => {
+    return del
+        .sync("es/**");
+});
+
+gulp.task("clean:dist", async () => {
+    return del
+        .sync("dist/**");
+});
+
+gulp.task("compile:cjs", () => {
+    const tsProject = ts.createProject("tsconfig.json");
     return tsProject
         .src()
         .pipe(tsProject())
-        .js.pipe(gulp.dest("dist"));
-});
-
-gulp.task("cjs", () => {
-    return gulp
-        .src("src/**/*.(ts|tsx)")
-        .pipe(
+        .js.pipe(
             babel({
                 presets: getPresets("cjs"),
                 plugins: getPlugins()
@@ -42,19 +55,22 @@ gulp.task("cjs", () => {
         .pipe(gulp.dest("."));
 });
 
-gulp.task("es", () => {
-    return gulp
-        .src("src/**/*.(ts|tsx)")
-        .pipe(
+gulp.task("compile:es", () => {
+    const tsProject = ts.createProject("tsconfig.json");
+    return tsProject
+        .src()
+        .pipe(tsProject())
+        .js.pipe(
             babel({
                 presets: getPresets("es"),
                 plugins: getPlugins()
             })
         )
-        .pipe(gulp.dest("es"));
+        .pipe(gulpIf("*.js", uglify()))
+        .pipe(gulp.dest("./es"));
 });
 
-gulp.task("css", () => {
+gulp.task("build:css", () => {
     return gulp
         .src("src/styles/**/*.css")
         .pipe(uglifycss())
@@ -62,14 +78,15 @@ gulp.task("css", () => {
         .pipe(gulp.dest("dist/styles"));
 });
 
-// gulp.task("assets", () => {
-// return gulp
-// .src("chessground-examples/assets/**/*")
-// .pipe(gulp.dest("dist/assets"));
-// });
-
-gulp.task("img", () => {
-    return gulp.src("src/images/**/*").pipe(gulp.dest("dist/images"));
+gulp.task("build:img", () => {
+    return gulp
+        .src("src/images/**/*")
+        .pipe(cache(imagemin()))
+        .pipe(gulp.dest("dist/images"));
 });
 
-gulp.task("default", gulp.parallel(["cjs", "es", "css", "img"]));
+gulp.task("clean", gulp.series("clean:cjs", "clean:es", "clean:dist"));
+gulp.task("compile", gulp.series("compile:cjs", "compile:es"));
+gulp.task("build", gulp.series("build:css", "build:img"))
+
+gulp.task("default", gulp.series("clean", "compile", "build"));

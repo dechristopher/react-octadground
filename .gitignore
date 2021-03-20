@@ -2,6 +2,7 @@ node_modules
 example/demo/src/es
 umd
 dist
+es
 *.log
 /*.js
 !gulpfile.js

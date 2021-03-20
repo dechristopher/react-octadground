@@ -48,14 +48,16 @@ const Octadground: FC<OctadgroundProps> = (props) => {
   }
 
   const buildConfigFromProps = (props: OctadgroundProps): Config => {
-    const config = { events: {} }
-    Object.keys(Octadground.propTypes).forEach(k => {
+    const config: Pick<Config, "events"> = { events: {} }
+    Object.keys(props).forEach((k: keyof OctadgroundProps) => {
       const v = props[k]
       if (typeof v !== 'undefined') {
-        const match = k.match(/^on([A-Z]\S*)/)
+        const match: RegExpMatchArray = k.match(/^on([A-Z]\S*)/)
         if (match) {
+          // @ts-ignore
           config.events[match[1].toLowerCase()] = v
         } else {
+          // @ts-ignore
           config[k] = v
         }
       }
@@ -73,7 +75,9 @@ const Octadground: FC<OctadgroundProps> = (props) => {
       )
     )
 
-    return og.destroy
+    return () => {
+      og?.destroy?.()
+    }
   }, [])
 
   useEffect(() => {
