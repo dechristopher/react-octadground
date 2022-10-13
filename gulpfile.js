@@ -28,7 +28,7 @@ const getPlugins = () => {
 
 gulp.task("clean:cjs", async () => {
     return del
-        .sync(["index.js", "octadground.js"]);
+        .sync(["index.js", "octadground.js", "index.d.ts", "octadground.d.ts"]);
 });
 
 gulp.task("clean:es", async () => {
@@ -54,6 +54,16 @@ gulp.task("compile:cjs", () => {
         )
         .pipe(gulpIf("*.js", uglify()))
         .pipe(gulp.dest("."));
+});
+
+gulp.task("compile:d.ts", () => {
+    const tsProject = ts.createProject("tsconfig.json");
+
+    return tsProject
+        .src()
+        .pipe(tsProject())
+        .dts.pipe(gulp.dest(".")
+    );
 });
 
 gulp.task("compile:es", () => {
@@ -87,7 +97,7 @@ gulp.task("build:img", () => {
 });
 
 gulp.task("clean", gulp.series("clean:cjs", "clean:es", "clean:dist"));
-gulp.task("compile", gulp.series("compile:cjs", "compile:es"));
+gulp.task("compile", gulp.series("compile:cjs", "compile:d.ts", "compile:es"));
 gulp.task("build", gulp.series("build:css", "build:img"))
 
 gulp.task("default", gulp.series("clean", "compile", "build"));
