@@ -9149,10 +9149,10 @@ obuf@^1.0.0, obuf@^1.1.2:
   resolved "https://registry.yarnpkg.com/obuf/-/obuf-1.1.2.tgz#09bea3343d41859ebd446292d11c9d4db619084e"
   integrity sha512-PX1wu0AmAdPqOL1mWhqmlOd8kOIZQwGZw6rh7uby9fTc5lhaOWFLX3I6R1hrF9k3zUY40e6igsLGkDXK92LJNg==
 
-octadground@1.0.1-0:
-  version "1.0.1-0"
-  resolved "https://registry.yarnpkg.com/octadground/-/octadground-1.0.1-0.tgz#f7971c94327b3fb9c436e8be3778461f36b883d2"
-  integrity sha512-mnz9UVDgbkuJfFE5dEMQK+LRHFIJdJjb6PVhUCoFIBudb3NfWnMFGmechu+vcYGnrkk36ykEKMIeQf/6TwXvzQ==
+octadground@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/octadground/-/octadground-1.0.2.tgz#e680ee69a75e4adc0bd13f8b7b41b756c416d4dc"
+  integrity sha512-6KdNVT6SVayi8f37bBkT7jQRTHGm8xodINDykLjtdNGZAhHJzbttaU7fedSOIdpehE0XYEs1QSJFNAfUYtkGXg==
 
 on-finished@~2.3.0:
   version "2.3.0"

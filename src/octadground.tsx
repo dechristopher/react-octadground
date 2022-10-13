@@ -1,7 +1,12 @@
 import React, {CSSProperties, FC, useEffect, useRef, useState} from 'react'
 import { Octadground as NativeOctadground } from 'octadground'
 import {Api} from "octadground/api";
+import {Key, Piece} from "octadground/types";
 import {Config} from "octadground/config";
+
+export { Key, Piece };
+
+type PlayPremoveFunction = () => boolean;
 
 export interface OctadgroundProps {
   width?: string | number;
@@ -18,20 +23,20 @@ export interface OctadgroundProps {
   disableContextMenu?: boolean;
   resizable?: boolean;
   addPieceZIndex?: boolean;
-  highlight?: object;
-  animation?: object;
-  movable?: object;
-  premovable?: object;
-  predroppable?: object;
-  draggable?: object;
-  selectable?: object;
-  onChange?: Function;
-  onMove?: Function;
-  onDropNewPiece?: Function;
-  onSelect?: Function;
-  items?: object;
-  drawable?: object;
+  highlight?: Config["highlight"];
+  animation?: Config["animation"];
+  movable?: Config["movable"];
+  premovable?: Config["premovable"];
+  predroppable?: Config["predroppable"];
+  draggable?: Config["draggable"];
+  selectable?: Config["selectable"];
+  onChange?: () => void;
+  onMove?: (orig: Key, dest: Key, capturedPiece?: Piece) => void;
+  onDropNewPiece?: (piece: Piece, key: Key) => void;
+  onSelect?: (key: Key) => void;
+  drawable?: Config["drawable"];
   style?: CSSProperties;
+  setPlayPremoveFn: ( fn: PlayPremoveFunction ) => void;
 }
 
 const Octadground: FC<OctadgroundProps> = (props) => {
@@ -49,31 +54,33 @@ const Octadground: FC<OctadgroundProps> = (props) => {
 
   const buildConfigFromProps = (props: OctadgroundProps): Config => {
     const config: Pick<Config, "events"> = { events: {} }
-    Object.keys(props).forEach((k: keyof OctadgroundProps) => {
-      const v = props[k]
-      if (typeof v !== 'undefined') {
-        const match: RegExpMatchArray = k.match(/^on([A-Z]\S*)/)
+    Object.keys(props).forEach((propKey: keyof OctadgroundProps) => {
+      const propValue = props[propKey]
+      if (typeof propValue !== 'undefined') {
+        const match: RegExpMatchArray = propKey.match(/^on([A-Z]\S*)/)
         if (match) {
           // @ts-ignore
-          config.events[match[1].toLowerCase()] = v
+          config.events[match[1].toLowerCase()] = propValue
         } else {
           // @ts-ignore
-          config[k] = v
+          config[propKey] = propValue
         }
       }
     })
+
     return config
   }
 
   useEffect(() => {
-    setOg(
-      NativeOctadground(
-        el.current,
-        buildConfigFromProps(
-          Object.assign(defaultProps, props)
-        )
+    const newOctadground = NativeOctadground(
+      el.current,
+      buildConfigFromProps(
+        Object.assign(defaultProps, props)
       )
-    )
+    );
+
+    setOg(newOctadground)
+    props.setPlayPremoveFn(newOctadground.playPremove)
 
     return () => {
       og?.destroy?.()
