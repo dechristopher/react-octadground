@@ -1,10 +1,10 @@
 import React, {CSSProperties, FC, useEffect, useRef, useState} from 'react'
 import { Octadground as NativeOctadground } from 'octadground'
 import {Api} from "octadground/api";
-import {Key, Piece} from "octadground/types";
+import {Key, Piece, Pieces} from "octadground/types";
 import {Config} from "octadground/config";
 
-export { Key, Piece };
+export { Key, Piece, Pieces };
 
 type PlayPremoveFunction = () => boolean;
 
@@ -31,7 +31,7 @@ export interface OctadgroundProps {
   draggable?: Config["draggable"];
   selectable?: Config["selectable"];
   onChange?: () => void;
-  onMove?: (orig: Key, dest: Key, capturedPiece?: Piece) => void;
+  onMove?: (orig: Key, dest: Key, pieces: Pieces, capturedPiece?: Piece) => void;
   onDropNewPiece?: (piece: Piece, key: Key) => void;
   onSelect?: (key: Key) => void;
   drawable?: Config["drawable"];

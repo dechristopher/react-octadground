@@ -1,6 +1,6 @@
 {
   "name": "react-octadground",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "description": "React wrapper for octadground <https://github.com/dechristopher/octadground>",
   "main": "index.js",
   "module": "example/demo/src/es/index.js",
@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/dechristopher/react-octadground",
   "dependencies": {
-    "octadground": "1.0.2"
+    "octadground": "1.0.3"
   },
   "peerDependencies": {
     "react": "17.0.1",
