@@ -21,7 +21,7 @@ npm install --save react-octadground
 ## Usage
 
 ```js
-import Octadground from 'react-octadground'
+import Octadground from 'react-octadground/octadground'
 import 'react-octadground/dist/styles/octadground.css'
 
 const Demo: FC = props => {
